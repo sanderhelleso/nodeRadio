@@ -4,6 +4,7 @@ import { BrowserRouter, Route} from "react-router-dom";
 
 // components
 import Videoplayer from "../components/Videoplayer";
+import GenreCard from "../components/GenreCard";
 
 // create App component
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
         return (
             <div>
                 <h1>HELLO</h1>
+                <GenreCard />
                 <BrowserRouter>
                     <Route path="/" component ={Videoplayer} />
                 </BrowserRouter>

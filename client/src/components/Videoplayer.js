@@ -3,17 +3,21 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Videoplayer extends Component {
-    renderContent() {
+    componentDidMount() {
         return this.props.fetchSong("house"); // this SHOULD return a URL
     }
 
     render() {
         return (
             <video className="responsive-video" controls autoPlay>
-                <source src={this.renderContent()} type="video/mp4"></source>
+                <source src={this.props.src} type="video/mp4"></source>
             </video>
         )
     }
 }
 
-export default connect(null, actions)(Videoplayer);
+const mapStateToProps = state => ({
+    src: state.genre
+});
+
+export default connect(mapStateToProps, actions)(Videoplayer);
