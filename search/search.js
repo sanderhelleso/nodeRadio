@@ -11,17 +11,16 @@ const opts = {
   key: process.env.YOUTUBE_API_KEY
 };
 
-module.exports = function(category) {
+module.exports = category => {
     search(category, opts, function (err, results) {
         if (err) {
             return console.log(err);
         }
 
         results.forEach(result => {
-            const fileName = `videos/${Math.random()}.mp4`;
-            /*ytdl(result.link, { filter: (format) => format.container === 'mp4' })
-            .pipe(fs.createWriteStream(fileName));*/
-            console.log(fileName);
+            const fileName = `videos/${category.split(" ")[0]}/${Math.random()}.mp4`;
+            //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
+            //.pipe(fs.createWriteStream(fileName));
         });
     })
 };
