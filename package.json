@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "server": "nodemon index.js"
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Sander Hellesø",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^3.6.0",
     "create-react-app": "^1.5.2",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",

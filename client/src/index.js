@@ -11,5 +11,5 @@ import axios from "axios";
 
 // render React App
 ReactDOM.render(
-    <App />, document.querySelector("#root");
+    <App />, document.querySelector("#root")
 );
