@@ -1,7 +1,9 @@
 const search = require("youtube-search");
+const fs = require("fs");
+const ytdl = require('ytdl-core');
 
 const opts = {
-  maxResults: 3,
+  maxResults: 1,
   type: "video",
   videoDuration: "short",
   videoDefinition: "high",
@@ -10,17 +12,16 @@ const opts = {
 };
 
 module.exports = function(category) {
-    search: search(category, opts, function (err, results) {
+    search(category, opts, function (err, results) {
         if (err) {
             return console.log(err);
         }
 
         results.forEach(result => {
-            console.log(result.link);
-            console.log(result.title);
-            const fileName = `videos/${Math.random()}.mp4`
-            //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
-            //.pipe(fs.createWriteStream(fileName));
-        })
+            const fileName = `videos/${Math.random()}.mp4`;
+            /*ytdl(result.link, { filter: (format) => format.container === 'mp4' })
+            .pipe(fs.createWriteStream(fileName));*/
+            console.log(fileName);
+        });
     })
 };

@@ -6,7 +6,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const http = require("http");
 const dotenv = require("dotenv").load();
-const search = require("youtube-search");
 
 // app
 const app = express();
