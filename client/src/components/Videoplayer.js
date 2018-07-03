@@ -3,14 +3,14 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 class Videoplayer extends Component {
-    componentDidMount() {
-        this.props.fetchSong("nightcore");
+    renderContent() {
+        return this.props.fetchSong("house"); // this SHOULD return a URL
     }
 
     render() {
         return (
             <video className="responsive-video" controls autoPlay>
-                <source src="movie.mp4" type="video/mp4"></source>
+                <source src={this.renderContent()} type="video/mp4"></source>
             </video>
         )
     }
