@@ -4,7 +4,7 @@ import * as actions from "../actions";
 
 class Videoplayer extends Component {
     componentDidMount() {
-        console.log(321);
+        this.props.fetchSong("nightcore");
     }
 
     render() {

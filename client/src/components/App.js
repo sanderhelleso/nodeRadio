@@ -7,15 +7,13 @@ import Videoplayer from "../components/Videoplayer";
 
 // create App component
 class App extends Component {
-    componentDidMount() {
-        console.log(123);
-    }
-
     render() {
         return (
             <div>
                 <h1>HELLO</h1>
-                <Videoplayer />
+                <BrowserRouter>
+                    <Route path="/" component ={Videoplayer} />
+                </BrowserRouter>
             </div>
         );
     }
