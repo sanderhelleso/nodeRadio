@@ -5,9 +5,11 @@ const categories = ["house", "trance", "edm", "nightcore", "pop", "hip-hop", "ra
 module.exports = app => {
     categories.forEach(category => {
         app.get(`/${category}`, (req, res) => {
-            const song = getMusic(`${category} music`);
-            fs.readdir(`./videos/${category}`, (err, files) => {
-                res.send(files[0]);
+            getMusic(`${category} music`);
+            
+            const dir = `./videos/${category}`;
+            fs.readdir(dir, (err, files) => {
+                res.send(`${dir}/${files[0]}`);
             })
         });
     });
