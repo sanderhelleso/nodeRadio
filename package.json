@@ -13,9 +13,16 @@
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "ffmpeg": "0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
     "google-auth-library": "^1.6.1",
     "googleapis": "^32.0.0",
     "nodemon": "^1.17.5",
-    "youtube-search": "^1.1.1"
+    "shelljs": "^0.8.2",
+    "youtube-dl": "^1.12.2",
+    "youtube-mp3": "^0.1.2",
+    "youtube-mp3-downloader": "^0.5.3",
+    "youtube-search": "^1.1.1",
+    "ytdl-core": "^0.20.4"
   }
 }
