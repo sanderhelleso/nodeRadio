@@ -4,19 +4,19 @@ import { BrowserRouter, Route} from "react-router-dom";
 
 // components
 import Landing from "../components/Landing";
-import Videoplayer from "../components/Videoplayer";
 import GenreCard from "../components/GenreCard";
+import Radio from "../components/Radio";
 
 // create App component
 class App extends Component {
     render() {
         return (
             <div>
-                <Landing />
                 <BrowserRouter>
                     <div>
+                        <Route exact path="/" component ={Landing} />
                         <Route exact path="/" component ={GenreCard} />
-                        <Route path="/radio/" component ={Videoplayer} />
+                        <Route path="/radio/" component ={Radio} />
                     </div>
                 </BrowserRouter>
             </div>

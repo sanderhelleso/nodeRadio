@@ -10,7 +10,8 @@ module.exports = app => {
             const dir = `./client/public/genres/${category}`;
             fs.readdir(dir, (err, files) => {
                 res.send(`/genres/${category}/${files[0]}`);
-            })
+                res.destroy();
+            });
         });
     });
 };

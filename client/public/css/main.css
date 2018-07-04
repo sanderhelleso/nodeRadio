@@ -23,3 +23,7 @@ body {
 #intro p {
     font-size: 20px;
 }
+
+#videoplayer {
+    display: none;
+}
