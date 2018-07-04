@@ -7,7 +7,6 @@ const opts = {
   type: "video",
   videoDuration: "short",
   videoDefinition: "high",
-  order: "viewCount",
   key: process.env.YOUTUBE_API_KEY
 };
 

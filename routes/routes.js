@@ -22,6 +22,13 @@ module.exports = app => {
 
     // read bytes from file and returns content
     function readFile(file) {
-        return fs.readFileSync(file).toString().split('\n');
+        const fileInfo = fs.readFileSync(file).toString().split("|---|")[0].toUpperCase();
+        if (fileInfo.split("(") === undefined) {
+            return fileInfo;
+        }
+
+        else {
+            return fileInfo.split("(")[0];
+        }
     }
 };
