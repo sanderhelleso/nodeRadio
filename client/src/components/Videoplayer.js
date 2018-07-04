@@ -14,13 +14,17 @@ class Videoplayer extends Component {
 
     render() {
         return (
-            <ReactPlayer id="videoplayer" playing url={window.location.origin + this.props.src} controls={true} />
+            <div>
+                <h1>{this.props.info}</h1>
+                <ReactPlayer id="videoplayer" playing url={window.location.origin + this.props.src} controls={true} />
+            </div>
         )
     }
 }
 
-const mapStateToProps = state => ({
-    src: state.genre
+const mapStateToProps = state =>  ({
+    src: state.genre,
+    info: state.info
 });
 
 export default connect(mapStateToProps, actions)(Videoplayer);

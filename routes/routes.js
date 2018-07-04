@@ -9,8 +9,11 @@ module.exports = app => {
             
             const dir = `./client/public/genres/${category}`;
             fs.readdir(dir, (err, files) => {
-                res.send(`/genres/${category}/${files[0]}`);
-                res.destroy();
+                res.send({
+                    song:   `/genres/${category}/${files[0]}`,
+                    info: "123test321" 
+                });
+                res.end();
             });
         });
     });
