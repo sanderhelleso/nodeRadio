@@ -12,9 +12,11 @@ class App extends Component {
         return (
             <div>
                 <h1>HELLO</h1>
-                <GenreCard />
                 <BrowserRouter>
-                    <Route path="/radio/" component ={Videoplayer} />
+                    <div>
+                        <Route exact path="/" component ={GenreCard} />
+                        <Route path="/radio/" component ={Videoplayer} />
+                    </div>
                 </BrowserRouter>
             </div>
         );
