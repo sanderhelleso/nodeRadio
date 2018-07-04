@@ -14,7 +14,7 @@ class App extends Component {
                 <h1>HELLO</h1>
                 <GenreCard />
                 <BrowserRouter>
-                    <Route path="/" component ={Videoplayer} />
+                    <Route path="/radio/" component ={Videoplayer} />
                 </BrowserRouter>
             </div>
         );

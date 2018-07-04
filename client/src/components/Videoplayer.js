@@ -5,12 +5,16 @@ import * as actions from "../actions";
 
 class Videoplayer extends Component {
     componentDidMount() {
-        return this.props.fetchSong("house"); // this SHOULD return a URL
+        // get current url
+        const category = this.props.location.pathname.split("/")[2];
+
+        // fetch the current song playing
+        return this.props.fetchSong(category);
     }
 
     render() {
         return (
-            <ReactPlayer url={window.location.origin + this.props.src} playing />
+            <ReactPlayer playing url={window.location.origin + this.props.src} controls={true} />
         )
     }
 }
