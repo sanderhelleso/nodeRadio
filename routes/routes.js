@@ -8,13 +8,20 @@ module.exports = app => {
             getMusic(`${category} music`);
             
             const dir = `./client/public/genres/${category}`;
+            console.log(readFile(`${dir}/info/${category}.txt`));
             fs.readdir(dir, (err, files) => {
                 res.send({
                     song:   `/genres/${category}/${files[0]}`,
-                    info: "123test321" 
+                    info:   readFile(`${dir}/info/${category}.txt`)
+
                 });
                 res.end();
             });
         });
     });
+
+    // read bytes from file and returns content
+    function readFile(file) {
+        return fs.readFileSync(file).toString().split('\n');
+    }
 };

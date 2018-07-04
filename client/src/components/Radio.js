@@ -9,8 +9,10 @@ class Radio extends Component {
     render() {
         return (
         <div className="container">
+            <div>
+                {this.renderContent()}
+            </div>
             <Videoplayer />
-            <div>{this.renderContent()}</div>
         </div>
         )
     }
