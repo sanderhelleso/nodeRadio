@@ -6,7 +6,12 @@ class GenreCard extends Component {
         return categories.map((category) =>
             <div key={category} className="col s4">
                 <div className="z-depth-2 card">
-                <h5>{category}</h5>
+                    <div className="card-image">
+                        <div className="genreOverlay">
+                            <img className="genreCover" src={`img/${category}.jpg`}/>
+                        </div>
+                        <span className="card-title genreTitle">{category.toUpperCase()}</span>
+                    </div>
                 </div>
             </div>
         );
