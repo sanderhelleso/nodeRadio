@@ -1,7 +1,7 @@
 const getMusic = require("../search/search");
 const fs = require("fs");
 
-const categories = ["house", "trance", "edm", "nightcore", "pop", "hip-hop", "rap", "rock", "metall", "country"];
+const categories = ["house", "trance", "edm", "nightcore", "pop", "hip-hop", "rap", "rock", "metal", "country", "R&B", "indie"];
 module.exports = app => {
     categories.forEach(category => {
         app.get(`/api/${category}`, (req, res) => {
