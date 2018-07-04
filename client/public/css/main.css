@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani');
+
+body {
+    background: linear-gradient(
+    rgba(118, 0, 255, 0.8), 
+    rgba(0, 255, 242, 0.95)),
+    url("../img/landing.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+#intro {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#intro h1 {
+    margin-top: 100px;
+    font-size: 70px;
+    letter-spacing: 10px;
+}
+
+#intro p {
+    font-size: 20px;
+}
