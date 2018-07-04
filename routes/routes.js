@@ -7,10 +7,9 @@ module.exports = app => {
         app.get(`/api/${category}`, (req, res) => {
             getMusic(`${category} music`);
             
-            const dir = `./videos/${category}`;
+            const dir = `./client/public/genres/${category}`;
             fs.readdir(dir, (err, files) => {
-                console.log(123);
-                res.send(`${dir}/${files[0]}`);
+                res.send(`/genres/house/${files[0]}`);
             })
         });
     });

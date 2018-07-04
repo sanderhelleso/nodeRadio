@@ -18,7 +18,7 @@ module.exports = category => {
         }
 
         results.forEach(result => {
-            const fileName = `videos/${category.split(" ")[0]}/${Math.random()}.mp4`;
+            const fileName = `./client/public/genres/${category.split(" ")[0]}/${Math.random()}.mp4`;
             //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
             //.pipe(fs.createWriteStream(fileName));
         });

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPlayer from 'react-player'
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
@@ -9,9 +10,7 @@ class Videoplayer extends Component {
 
     render() {
         return (
-            <video className="responsive-video" controls autoPlay>
-                <source src={this.props.src} type="video/mp4"></source>
-            </video>
+            <ReactPlayer url={window.location.origin + this.props.src} playing />
         )
     }
 }
