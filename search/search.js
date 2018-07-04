@@ -18,9 +18,33 @@ module.exports = category => {
         }
 
         results.forEach(result => {
-            const fileName = `./client/public/genres/${category.split(" ")[0]}/${Math.random()}.mp4`;
+            const genre = category.split(" ")[0];
+            const filePath = `./client/public/genres/${genre}/`;
+            const fileName = `${filePath}${Math.random()}.mp4`;
+
+            // get song
             //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
             //.pipe(fs.createWriteStream(fileName));
+
+            createInfoFile(`${filePath}/info/`, genre, result);
         });
     })
 };
+
+// create file and dir to contain song data
+function createInfoFile(dir, genre, result) {
+
+    // create info dir if missing
+    if (!fs.existsSync(dir)){
+        fs.mkdirSync(dir);
+        console.log(dir);
+    }
+
+    // file to read current song info
+    fs.writeFile(`${dir}${genre}.txt`, `${result.title} |---| ${result.link}`, function (err) {
+        if (err) {
+            throw err;
+        }
+        console.log('Saved!');
+    });
+}
