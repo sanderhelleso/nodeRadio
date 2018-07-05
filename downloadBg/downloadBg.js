@@ -27,4 +27,4 @@ function downloadBg(uri, filename, callback) {
             });
         }, i * 6000);
     };
-  }, 10000);
+  }, 60000);

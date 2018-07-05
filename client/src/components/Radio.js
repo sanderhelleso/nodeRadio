@@ -6,7 +6,10 @@ class Radio extends Component {
         //document.body.classList.add("radioBG");
         setInterval(() => {
             //document.body.classList.remove("radioBG");
-            document.body.style.backgroundImage = `linear-gradient(rgba(118, 0, 255, 0.8), rgba(0, 255, 242, 0.95)), url('/img/background/radio${Math.floor(Math.random() * 10) + 1}.jpg')`;
+            const rgb = Math.floor(Math.random() * 255) + 50;
+            const opacity = (Math.random() * 0.55) + 0.40;
+            console.log(opacity);
+            document.body.style.backgroundImage = `linear-gradient(rgba(${rgb}, 0, 255, 0.8), rgba(0, 255, ${rgb}, ${opacity})), url('/img/background/radio${Math.floor(Math.random() * 10) + 1}.jpg')`;
         }, 10000);
     } 
 
