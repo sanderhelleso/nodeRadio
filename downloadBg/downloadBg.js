@@ -1,6 +1,8 @@
 const https = require('https');
 const fs = require('fs');
+const path = require('path');
 const request = require('request');
+const gm = require("gm");
 
 
 // download img with headers
@@ -19,7 +21,10 @@ function downloadBg(uri, filename, callback) {
         setTimeout(() => {
             downloadBg('https://source.unsplash.com/random/1920x1080', `./client/public/img/background/radio${i}.jpg`, () => {
                 console.log('done');
+
+                // compress img to smaller size
+                gm(`./client/public/img/background/radio${i}.jpg`).compress("JPEG");
             });
         }, i * 6000);
     };
-  }, 60000);
+  }, 10000);
