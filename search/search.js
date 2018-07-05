@@ -44,6 +44,5 @@ function createInfoFile(dir, genre, result) {
         if (err) {
             throw err;
         }
-        console.log('Saved!');
     });
 }
