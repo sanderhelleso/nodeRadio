@@ -16,7 +16,8 @@ class Player extends Component {
         return (
             <div>
                 <ReactPlayer id="player" onReady={stream} url={window.location.origin + this.props.src} controls={true} />
-                <h5>{this.props.info}</h5>
+                <h4>{this.props.info}</h4>
+                <h5><span id="songPlayedDuration"></span> / <span id="songTotalDuration"></span></h5>
                 <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_arrow</i>
                 <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
             </div>
@@ -43,6 +44,18 @@ function stream() {
         player.pause();
         ele.innerHTML = "play_arrow";
     }
+
+    streamStats(player);
+}
+
+function streamStats(player) {
+    document.querySelector("#songTotalDuration").innerHTML = convertSecs(player.duration);    
+}
+
+function convertSecs(time) {
+    const min = Math.floor(time / 60);
+    const sec = time - min * 60;
+    return min + ":" + sec.toFixed(0);
 }
 
 function yt() {
