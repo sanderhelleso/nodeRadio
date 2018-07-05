@@ -12,7 +12,8 @@ module.exports = app => {
             fs.readdir(dir, (err, files) => {
                 res.send({
                     song:   `/genres/${category}/${files[0]}`,
-                    info:   readFile(`${dir}/info/${category}.txt`)
+                    info:   readFile(`${dir}/info/${category}.txt`, true),
+                    link:   readFile(`${dir}/info/${category}.txt`, false)
 
                 });
                 res.end();
@@ -21,14 +22,23 @@ module.exports = app => {
     });
 
     // read bytes from file and returns content
-    function readFile(file) {
-        const fileInfo = fs.readFileSync(file).toString().split("|---|")[0].toUpperCase();
-        if (fileInfo.split("(") === undefined) {
-            return fileInfo;
+    function readFile(file, mode) {
+        const fileInfo = fs.readFileSync(file).toString().split("|---|");
+        const title = fileInfo[0].toUpperCase();
+        const link = fileInfo[1];
+
+        if (mode) {
+            if (title.split("(") === undefined) {
+                return title.toUpperCase();
+            }
+    
+            else {
+                return title.toUpperCase().split("(")[0];
+            }
         }
 
         else {
-            return fileInfo.split("(")[0];
+            return link;
         }
     }
 };

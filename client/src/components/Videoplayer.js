@@ -17,6 +17,7 @@ class Videoplayer extends Component {
             <div>
                 <ReactPlayer id="videoplayer" playing url={window.location.origin + this.props.src} controls={true} />
                 <h5>{this.props.info}</h5>
+                <h5>{this.props.link}</h5>
             </div>
         )
     }
@@ -24,7 +25,8 @@ class Videoplayer extends Component {
 
 const mapStateToProps = state =>  ({
     src: state.genre,
-    info: state.info
+    info: state.info,
+    link: state.link
 });
 
 export default connect(mapStateToProps, actions)(Videoplayer);
