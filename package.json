@@ -26,6 +26,7 @@
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",
     "shelljs": "^0.8.2",
+    "unsplash-js": "^4.8.0",
     "youtube-dl": "^1.12.2",
     "youtube-mp3": "^0.1.2",
     "youtube-mp3-downloader": "^0.5.3",

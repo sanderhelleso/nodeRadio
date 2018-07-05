@@ -14,3 +14,13 @@
 .radioOptions:hover {
     opacity: 1;
 }
+
+.radioBG {
+    background: linear-gradient(
+    rgba(118, 0, 255, 0.8), 
+    rgba(0, 255, 242, 0.95)),
+    url("../img/radio.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+}

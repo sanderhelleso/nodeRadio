@@ -26,7 +26,7 @@ class Player extends Component {
     }
 }
 
-const mapStateToProps = state =>  ({
+const mapStateToProps = state => ({
     src: state.genre,
     info: state.info,
     link: state.link

@@ -17,6 +17,7 @@ const host = process.env.HOST || 'localhost';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 require("./routes/routes")(app);
+require("./downloadBg/downloadBg");
 
 // start server
 server.listen(port, host);
