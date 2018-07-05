@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-class Videoplayer extends Component {
+class Player extends Component {
     componentDidMount() {
         // get current url
         const category = window.location.href.split("/");
@@ -15,7 +15,7 @@ class Videoplayer extends Component {
     render() {
         return (
             <div>
-                <ReactPlayer id="videoplayer" playing url={window.location.origin + this.props.src} controls={true} />
+                <ReactPlayer id="player" playing url={window.location.origin + this.props.src} controls={true} />
                 <h5>{this.props.info}</h5>
                 <h5>{this.props.link}</h5>
             </div>
@@ -29,4 +29,4 @@ const mapStateToProps = state =>  ({
     link: state.link
 });
 
-export default connect(mapStateToProps, actions)(Videoplayer);
+export default connect(mapStateToProps, actions)(Player);

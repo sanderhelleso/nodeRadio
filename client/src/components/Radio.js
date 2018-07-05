@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Videoplayer from "../components/Videoplayer";
+import Player from '../components/Player';
 
 class Radio extends Component {
     renderContent() {
@@ -12,7 +12,7 @@ class Radio extends Component {
             <div>
                 {this.renderContent()}
             </div>
-            <Videoplayer />
+            <Player />
         </div>
         )
     }
