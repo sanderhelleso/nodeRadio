@@ -15,10 +15,9 @@ class Player extends Component {
     render() {
         return (
             <div>
-                <ReactPlayer id="player" playing url={window.location.origin + this.props.src} controls={true} />
+                <ReactPlayer id="player" onReady={stream} url={window.location.origin + this.props.src} controls={true} />
                 <h5>{this.props.info}</h5>
-                <i className="material-icons">play_arrow</i>
-                <i className="material-icons">pause</i>
+                <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_arrow</i>
                 <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
             </div>
         )
@@ -30,6 +29,21 @@ const mapStateToProps = state =>  ({
     info: state.info,
     link: state.link
 });
+
+function stream() {
+    const ele = document.querySelector("#streamer");
+    const player = document.querySelector("#player").childNodes[0];
+
+    if (ele.innerHTML === "play_arrow") {
+        player.play(); 
+        ele.innerHTML = "pause";
+    }
+
+    else {
+        player.pause();
+        ele.innerHTML = "play_arrow";
+    }
+}
 
 function yt() {
     const url = document.querySelector("#seeYt").value;

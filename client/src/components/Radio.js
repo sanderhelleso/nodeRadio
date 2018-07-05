@@ -8,7 +8,7 @@ class Radio extends Component {
 
     render() {
         return (
-        <div className="container">
+        <div className="container white-text">
             <div>
                 {this.renderContent()}
             </div>

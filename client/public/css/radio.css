@@ -3,3 +3,14 @@
     border: 1px solid white;
     display: none;
 }
+
+.radioOptions {
+    font-size: 100px !important;
+    opacity: 0.7;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.radioOptions:hover {
+    opacity: 1;
+}

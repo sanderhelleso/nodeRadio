@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani');
 
+.noSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body {
     background: linear-gradient(
     rgba(118, 0, 255, 0.8), 
@@ -25,5 +34,4 @@ body {
 }
 
 #player {
-    display: none;
 }
