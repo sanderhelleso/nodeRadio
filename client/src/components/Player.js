@@ -46,11 +46,13 @@ function stream() {
     if (ele.innerHTML === "play_circle_outline") {
         player.play(); 
         ele.innerHTML = "pause_circle_outline";
+        ele.classList.add("playing");
     }
 
     else {
         player.pause();
         ele.innerHTML = "play_circle_outline";
+        ele.classList.remove("playing");
     }
 
     player.muted = false;
