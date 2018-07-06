@@ -17,12 +17,16 @@ class Player extends Component {
     render() {
         return (
             <div>
+                <h4 id="currentSongTitle">{this.props.info}</h4>
                 <ReactPlayer onReady={playOnSpacePress} id="player" url={window.location.origin + this.props.src} muted controls={true} />
-                <h4>{this.props.info}</h4>
-                <h5><span id="songPlayedDuration"></span><span id="durationSlash"></span><span id="songTotalDuration"></span></h5>
-                <Progressbar />
-                <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_arrow</i>
-                <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
+                <div className="steamerCont">
+                    <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_circle_outline</i>
+                    <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
+                </div>
+                <div className="barCont">
+                    <h5><span id="songPlayedDuration"></span><span id="songTotalDuration"></span></h5>
+                    <Progressbar />
+                </div>
             </div>
         )
     }
@@ -39,14 +43,14 @@ function stream() {
     const ele = document.querySelector("#streamer");
     const player = document.querySelector("#player").childNodes[0];
 
-    if (ele.innerHTML === "play_arrow") {
+    if (ele.innerHTML === "play_circle_outline") {
         player.play(); 
-        ele.innerHTML = "pause";
+        ele.innerHTML = "pause_circle_outline";
     }
 
     else {
         player.pause();
-        ele.innerHTML = "play_arrow";
+        ele.innerHTML = "play_circle_outline";
     }
 
     player.muted = false;
@@ -55,9 +59,6 @@ function stream() {
 
 // display song stats
 function streamStats(player) {
-    // set current / total dur slash
-    const slash = document.querySelector("#durationSlash");
-    slash.innerHTML = " / ";
 
     // set total duration
     const setTotalDuration = document.querySelector("#songTotalDuration"); 
@@ -117,7 +118,6 @@ function playOnSpacePress() {
 function songProgress(currentTime, totalTime) {
     const bar = document.querySelector("#currentProgress");
     const percent = currentTime * 100 / totalTime;
-    console.log(percent);
     bar.style.width = `${percent}%`;
 }
 

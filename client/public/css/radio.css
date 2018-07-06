@@ -5,10 +5,17 @@
 }
 
 .radioOptions {
-    font-size: 100px !important;
+    font-size: 120px !important;
     opacity: 0.7;
     transition: all 0.3s;
     cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
 }
 
 .radioOptions:hover {
@@ -23,12 +30,15 @@
 	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
+    font-family: 'Poiret One', cursive;
+    overflow: hidden;
 }
 
 #progressBar {
     height: 24px;
     opacity: 0.5;
     border: 0.5px solid white;
+    margin-bottom: 50px;
 }
 
 #currentProgress {
@@ -36,4 +46,17 @@
     height: 100%;
     width: 0%;
     background-color: white;
+}
+
+#songTotalDuration {
+    float: right;
+}
+
+.barCont {
+    clear: both;
+}
+
+.streamerCont {
+    width: 100%;
+    margin: 0 auto;
 }
