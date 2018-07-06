@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ReactPlayer from 'react-player'
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import ReactPlayer from 'react-player'
+import Progressbar from "../components/Progressbar";
 
 class Player extends Component {
     componentDidMount() {
@@ -19,6 +20,7 @@ class Player extends Component {
                 <ReactPlayer onReady={playOnSpacePress} id="player" url={window.location.origin + this.props.src} muted controls={true} />
                 <h4>{this.props.info}</h4>
                 <h5><span id="songPlayedDuration"></span><span id="durationSlash"></span><span id="songTotalDuration"></span></h5>
+                <Progressbar />
                 <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_arrow</i>
                 <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
             </div>
@@ -76,6 +78,9 @@ function getPlayedDuration(player) {
         setInterval(() => {
             setTime.innerHTML = convertSecs(player.currentTime);
         }, 1000);
+        setInterval(() => {
+            songProgress(player.currentTime, player.duration);
+        }, 500);
     }
 }
 
@@ -106,6 +111,14 @@ function playOnSpacePress() {
             document.querySelector("#streamer").click();
         }
     });
+}
+
+// display current progress of a song
+function songProgress(currentTime, totalTime) {
+    const bar = document.querySelector("#currentProgress");
+    const percent = currentTime * 100 / totalTime;
+    console.log(percent);
+    bar.style.width = `${percent}%`;
 }
 
 export default connect(mapStateToProps, actions)(Player);

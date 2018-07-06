@@ -24,3 +24,16 @@
 	background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+#progressBar {
+    height: 24px;
+    opacity: 0.5;
+    border: 0.5px solid white;
+}
+
+#currentProgress {
+    z-index: 1337;
+    height: 100%;
+    width: 0%;
+    background-color: white;
+}
