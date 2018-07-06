@@ -1,3 +1,6 @@
+// animate.css
+import "animate.css";
+
 // import React & React router
 import React, { Component } from "react";
 import { BrowserRouter, Route} from "react-router-dom";
@@ -17,6 +20,7 @@ class App extends Component {
                         <Route exact path="/" component ={Landing} />
                         <Route exact path="/" component ={GenreCard} />
                         <Route path="/radio/" component ={Radio} />
+                        <div id ="bg"></div>
                     </div>
                 </BrowserRouter>
             </div>

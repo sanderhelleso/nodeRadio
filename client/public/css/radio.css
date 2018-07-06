@@ -29,17 +29,26 @@
 	background-size: cover;
 	background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Poiret One', cursive;
     height: 100vh;
-}
-
-#bg h1 {
-    margin-top: 0 !important;
+    z-index: -1337;
 }
 
 .radioCont {
+    font-family: 'Poiret One', cursive;
     padding-top: 50px;
+    opacity: 1 !important;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 100vh;
+    z-index: 1337;
 }
+
+.radioCont h1 {
+    margin-top: 0 !important;
+}
+
 
 #progressBar {
     height: 24px;
@@ -71,8 +80,7 @@
 .barCont {
     position: absolute;
     top: 80%;
-    width: 90%;
-    left: 5%;
+    width: 100%;
 }
 
 .playing {
