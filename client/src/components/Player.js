@@ -16,7 +16,7 @@ class Player extends Component {
     render() {
         return (
             <div>
-                <ReactPlayer id="player" url={window.location.origin + this.props.src} muted controls={true} />
+                <ReactPlayer onReady={playOnSpacePress} id="player" url={window.location.origin + this.props.src} muted controls={true} />
                 <h4>{this.props.info}</h4>
                 <h5><span id="songPlayedDuration"></span><span id="durationSlash"></span><span id="songTotalDuration"></span></h5>
                 <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_arrow</i>
@@ -97,6 +97,15 @@ function yt() {
     const url = document.querySelector("#seeYt").value;
     const ytWindow = window.open(url, '_blank');
     ytWindow.focus();
+}
+
+// allow user to start / pause on space press
+function playOnSpacePress() {
+    document.body.addEventListener("keypress", e => {
+        if (e.keyCode == "32") {
+            document.querySelector("#streamer").click();
+        }
+    });
 }
 
 export default connect(mapStateToProps, actions)(Player);
