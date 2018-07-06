@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Player from '../components/Player';
 
 class Radio extends Component {
-    componentWillMount() {
-        document.body.classList.add("radioBG");
+    componentDidMount() {
+        document.body.style.overflow = "hidden";
+        document.querySelector("#bg").classList.add("radioBG");
         setInterval(() => {
             const rgb = Math.floor(Math.random() * 255) + 50;
             const opacity = (Math.random() * 0.55) + 0.40;
-            document.body.style.backgroundImage = `linear-gradient(rgba(${rgb}, 0, 255, 0.8), rgba(0, 255, ${rgb}, ${opacity})), url('/img/background/radio${Math.floor(Math.random() * 10) + 1}.jpg')`;
+            document.querySelector("#bg").style.backgroundImage = `linear-gradient(rgba(${rgb}, 0, 255, 0.8), rgba(0, 255, ${rgb}, ${opacity})), url('/img/background/radio${Math.floor(Math.random() * 10) + 1}.jpg')`;
         }, 10000);
     } 
 
@@ -17,11 +18,11 @@ class Radio extends Component {
 
     render() {
         return (
-        <div className="container white-text">
-            <div>
+        <div id="bg">
+            <div className="container white-text radioCont">
                 {this.renderContent()}
+                <Player />
             </div>
-            <Player />
         </div>
         )
     }

@@ -30,7 +30,15 @@
 	background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'Poiret One', cursive;
-    overflow: hidden;
+    height: 100vh;
+}
+
+#bg h1 {
+    margin-top: 0 !important;
+}
+
+.radioCont {
+    padding-top: 50px;
 }
 
 #progressBar {
