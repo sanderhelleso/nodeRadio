@@ -4,7 +4,10 @@ class Landing extends Component {
   componentDidMount() {
     // manipulate bg gradient depending on scroll pos
     window.addEventListener("scroll", () => {
-      console.log(123);
+      const pos = document.documentElement.scrollTop / 4;
+      const gradient = `linear-gradient(rgba(${((pos + 200) * 1.0075) / 1.6}, 0, 255, 0.8), rgba(0, ${((pos + 220) * 1.0075) / 1.3}, 242, 0.95))`;
+      console.log(pos);
+      document.body.style.backgroundImage = `${gradient}, url('/img/landing.jpg')`;
     });
   }
 

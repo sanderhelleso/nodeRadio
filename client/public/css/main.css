@@ -12,8 +12,8 @@
 body {
     height: 100%;
     background: linear-gradient(
-    rgba(118, 0, 255, 0.8), 
-    rgba(0, 255, 242, 0.95)),
+    rgba(126, 0, 255, 0.8), 
+    rgba(0, 171, 242, 0.95)),
     url("../img/landing.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
