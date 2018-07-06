@@ -17,6 +17,7 @@ class Player extends Component {
     render() {
         return (
             <div>
+                <span>Now playing</span>
                 <h4 id="currentSongTitle">{this.props.info}</h4>
                 <ReactPlayer onReady={playOnSpacePress} id="player" url={window.location.origin + this.props.src} muted controls={true} />
                 <div className="steamerCont">

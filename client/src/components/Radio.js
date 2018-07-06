@@ -14,7 +14,7 @@ class Radio extends Component {
             bg.className = "radioBG animated fadeOut";
             setTimeout(() => {
                 bg.className = "radioBG animated fadeIn";
-                const rgb = Math.floor(Math.random() * 255) + 50;
+                const rgb = Math.floor(Math.random() * 200) + 50;
                 const opacity = (Math.random() * 0.55) + 0.40;
                 const gradient = `linear-gradient(rgba(${rgb}, 0, 255, 0.8), rgba(0, 255, ${rgb}, ${opacity}))`
                 document.body.style.background = gradient;

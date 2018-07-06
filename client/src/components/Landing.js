@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 
 class Landing extends Component {
+  componentDidMount() {
+    // manipulate bg gradient depending on scroll pos
+    window.addEventListener("scroll", () => {
+      console.log(123);
+    });
+  }
+
   render() {
     return (
       <div id="intro" className="center-align white-text">

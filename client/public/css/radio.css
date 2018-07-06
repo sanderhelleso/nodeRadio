@@ -49,6 +49,10 @@
     margin-top: 0 !important;
 }
 
+.barCont h5 {
+    letter-spacing: 2px;
+    font-size: 25px;
+}
 
 #progressBar {
     height: 24px;
@@ -64,12 +68,12 @@
     background-color: white;
 }
 
-#songTotalDuration {
-    float: right;
+#currentSongTitle {
+    margin-top: 5px;
 }
 
-.barCont {
-    clear: both;
+#songTotalDuration {
+    float: right;
 }
 
 .streamerCont {
@@ -78,6 +82,8 @@
 }
 
 .barCont {
+    font-family: 'Advent Pro', sans-serif;
+    clear: both;
     position: absolute;
     top: 80%;
     width: 100%;
