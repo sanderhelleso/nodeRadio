@@ -3,7 +3,7 @@ const fs = require("fs");
 const ytdl = require('ytdl-core');
 
 const opts = {
-  maxResults: 1,
+  maxResults: 50,
   type: "video",
   videoDuration: "short",
   videoDefinition: "high",
@@ -16,22 +16,24 @@ module.exports = category => {
             return console.log(err);
         }
 
+        let count = 0;
         results.forEach(result => {
+            count++;
             const genre = category.split(" ")[0];
             const filePath = `./client/public/genres/${genre}/`;
-            const fileName = `${filePath}${Math.random()}.mp4`;
+            const fileName = `${filePath}${genre}${count}.mp4`;
 
             // get song
             //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
             //.pipe(fs.createWriteStream(fileName));
 
-            createInfoFile(`${filePath}/info/`, genre, result);
+            //createInfoFile(`${filePath}/info/`, genre, result, count);
         });
     })
 };
 
 // create file and dir to contain song data
-function createInfoFile(dir, genre, result) {
+function createInfoFile(dir, genre, result, count) {
 
     // create info dir if missing
     if (!fs.existsSync(dir)){
@@ -40,7 +42,8 @@ function createInfoFile(dir, genre, result) {
     }
 
     // file to read current song info
-    fs.writeFile(`${dir}${genre}.txt`, `${result.title} |---| ${result.link}`, function (err) {
+    console.log(count);
+    fs.writeFile(`${dir}${genre}${count}.txt`, `${result.title} |---| ${result.link}`, function (err) {
         if (err) {
             throw err;
         }
