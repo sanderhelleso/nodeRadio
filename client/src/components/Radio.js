@@ -14,11 +14,7 @@ class Radio extends Component {
             bg.className = "radioBG animated fadeOut";
             setTimeout(() => {
                 bg.className = "radioBG animated fadeIn";
-                const rgb = Math.floor(Math.random() * 200) + 50;
-                const opacity = (Math.random() * 0.55) + 0.40;
-                const gradient = `linear-gradient(rgba(${rgb}, 0, 255, 0.8), rgba(0, 255, ${rgb}, ${opacity}))`
-                document.body.style.background = gradient;
-                document.querySelector("#bg").style.backgroundImage = `${gradient}, url('/img/background/radio${Math.floor(Math.random() * 10) + 1}.jpg')`;
+                document.querySelector("#bg").style.backgroundImage = `${setBg()[0]}, url('/img/background/radio${setBg()[1]}.jpg')`;
             }, 500);
         }, 10000);
     } 
@@ -72,6 +68,17 @@ function iconAnimation(trigger) {
     setTimeout(() => {
         trigger.parentElement.classList.remove("fadeIn");
     },500);
+}
+
+// set gradient background
+function setBg() {
+    const rgb = Math.floor(Math.random() * 200) + 50;
+    const opacity = (Math.random() * 0.55) + 0.40;
+    const gradient = `linear-gradient(rgba(${rgb}, 0, 255, 0.8), rgba(0, 255, ${rgb}, ${opacity}))`
+    const source = Math.floor(Math.random() * 10) + 1;
+
+    document.body.style.background = gradient;
+    return [gradient, source];
 }
 
 export default Radio;
