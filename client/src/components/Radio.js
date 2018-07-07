@@ -30,7 +30,7 @@ class Radio extends Component {
     render() {
         return (
             <div>
-                <a id="sidenavTrigger" onClick={sidebav} data-target="slide-out" className="sidenav-trigger white-text"><i className="material-icons">menu</i></a>
+                <a id="sidenavTrigger" onClick={sidebav} data-target="slide-out" className="sidenav-trigger white-text noSelect"><i className="material-icons">menu</i></a>
                 <div className="container white-text radioCont">
                     {this.renderContent()}
                     <Player />
