@@ -10,7 +10,7 @@ import { BrowserRouter, Route} from "react-router-dom";
 import Landing from "../components/Landing";
 import GenreCard from "../components/GenreCard";
 import Radio from "../components/Radio";
-import Sidebar from '../components/Sidebar';
+import Sidenav from "../components/Sidenav";
 
 // create App component
 class App extends Component {
@@ -22,7 +22,7 @@ class App extends Component {
                         <Route exact path="/" component ={Landing} />
                         <Route exact path="/" component ={GenreCard} />
                         <Route path="/radio/" component ={Radio} />
-                        <Route path="/radio/" component ={Sidebar} />
+                        <Route path="/radio/" component ={Sidenav} />
                         <div id ="bg"></div>
                     </div>
                 </BrowserRouter>
