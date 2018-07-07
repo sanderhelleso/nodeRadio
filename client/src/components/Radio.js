@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Player from '../components/Player';
+import Sidebar from '../components/Sidebar';
 
 class Radio extends Component {
     componentDidMount() {
@@ -30,6 +31,8 @@ class Radio extends Component {
     render() {
         return (
             <div className="container white-text radioCont">
+                <a href="#" data-target="slide-out" className="sidenav-trigger white-text"><i className="material-icons">menu</i></a>
+                <Sidebar />
                 {this.renderContent()}
                 <Player />
             </div>
