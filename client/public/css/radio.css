@@ -103,7 +103,7 @@
     right: 0;
     top: 0;
     z-index: 2000;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-right: 20px;
     opacity: 0.8;
     cursor: pointer;
@@ -111,6 +111,10 @@
 
 #sidenavTrigger:hover {
     opacity: 1;
+}
+
+#sidenavTrigger i {
+    font-size: 30px;
 }
 
 #songInfo {
@@ -125,6 +129,11 @@
 .user-view {
     min-height: 25vh;
     margin-bottom: 0 !important;
+    transition: all 0.5s;
+}
+
+.user-view:hover {
+    opacity: 0.7;
 }
 
 #slide-out {
@@ -132,16 +141,11 @@
 }
 
 .sideHomeLink {
-    font-family: 'Poiret One', cursive;
+    font-family: 'Advent Pro', sans-serif;
     opacity: 0.5;
     letter-spacing: 2px;
     font-size: 25px;
     padding-bottom: 15px;
-    transition: all 0.3s;
-}
-
-.sideHomeLink:hover {
-    opacity: 1;
 }
 
 @keyframes zoom {
