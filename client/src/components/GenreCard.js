@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import categories from "../vars/categories";
 
 class GenreCard extends Component {
     renderContent() {
-        const categories = ["house", "trance", "edm", "nightcore", "pop", "hip-hop", "rap", "rock", "metal", "country", "R&B", "indie"];
         return categories.map((category) =>
             <a key={category} href={`/radio/${category}`}>
                 <div className="col s12 m6 l4">

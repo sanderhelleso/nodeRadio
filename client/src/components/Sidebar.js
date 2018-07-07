@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "materialize-css/dist/js/materialize.min.js";
+import categories from "../vars/categories";
 
 class Sidebar extends Component {
     componentWillMount() {
@@ -7,13 +7,73 @@ class Sidebar extends Component {
             const elems = document.querySelectorAll('.sidenav');
             const instances = M.Sidenav.init(elems);
         });
+
+        console.log(categories);
     }
 
     render() {
         return (
             <ul id="slide-out" className="sidenav">
-                <li><a href="#!">First Sidebar Link</a></li>
-                <li><a href="#!">Second Sidebar Link</a></li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
+                <li className="user-view">
+                    <div className="background">
+                        <img src="/img/landing.jpg" className="responsive-img"></img>
+                    </div>
+                </li>
             </ul>
         )
     }

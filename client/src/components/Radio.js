@@ -30,7 +30,7 @@ class Radio extends Component {
     render() {
         return (
             <div>
-                <a id="sidenavTrigger" onClick={sidebav} data-target="slide-out" className="sidenav-trigger white-text noSelect animated"><i className="material-icons">menu</i></a>
+                <a id="sidenavTrigger" onClick={sidenav} data-target="slide-out" className="sidenav-trigger white-text noSelect animated"><i className="material-icons">menu</i></a>
                 <div className="container white-text radioCont">
                     {this.renderContent()}
                     <Player />
@@ -41,7 +41,7 @@ class Radio extends Component {
 }
 
 // modify sidebar icons
-function sidebav() {
+function sidenav() {
     const trigger = document.querySelector("#sidenavTrigger").childNodes[0];
     const elems = document.querySelector('.sidenav');
 
