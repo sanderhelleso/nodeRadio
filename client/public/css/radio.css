@@ -44,6 +44,7 @@
     transform: translate(-50%, -50%);
     height: 100vh;
     z-index: 1337;
+    overflow: hidden;
 }
 
 .radioCont h1 {
@@ -96,6 +97,21 @@
 
 #slide-out {
     z-index: 1339 !important;
+}
+
+#sidenavTrigger {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2000;
+    margin-top: 20px;
+    margin-right: 20px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#sidenavTrigger:hover {
+    opacity: 1;
 }
 
 .playing {

@@ -29,13 +29,36 @@ class Radio extends Component {
 
     render() {
         return (
-            <div className="container white-text radioCont">
-                <a href="#" data-target="slide-out" className="sidenav-trigger white-text"><i className="material-icons">menu</i></a>
-                {this.renderContent()}
-                <Player />
+            <div>
+                <a id="sidenavTrigger" onClick={sidebav} data-target="slide-out" className="sidenav-trigger white-text"><i className="material-icons">menu</i></a>
+                <div className="container white-text radioCont">
+                    {this.renderContent()}
+                    <Player />
+                </div>
             </div>
         )
     }
+}
+
+// modify sidebar icons
+function sidebav() {
+    const trigger = document.querySelector("#sidenavTrigger").childNodes[0];
+    const elems = document.querySelector('.sidenav');
+    if (trigger.innerHTML === "menu") {
+        trigger.innerHTML = "close";
+    }
+
+    else {
+        trigger.innerHTML = "menu";
+        console.log(elems);
+        M.Sidenav.getInstance(elems).close();
+    }
+
+    // enable overlay to change icon aswell
+    document.querySelector(".sidenav-overlay").addEventListener("click", () => {
+            trigger.innerHTML = "menu";
+    });
+    console.log(trigger.innerHTML);
 }
 
 export default Radio;
