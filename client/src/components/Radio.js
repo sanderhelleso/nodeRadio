@@ -30,7 +30,7 @@ class Radio extends Component {
     render() {
         return (
             <div>
-                <a id="sidenavTrigger" onClick={sidebav} data-target="slide-out" className="sidenav-trigger white-text noSelect"><i className="material-icons">menu</i></a>
+                <a id="sidenavTrigger" onClick={sidebav} data-target="slide-out" className="sidenav-trigger white-text noSelect animated"><i className="material-icons">menu</i></a>
                 <div className="container white-text radioCont">
                     {this.renderContent()}
                     <Player />
@@ -44,21 +44,34 @@ class Radio extends Component {
 function sidebav() {
     const trigger = document.querySelector("#sidenavTrigger").childNodes[0];
     const elems = document.querySelector('.sidenav');
+
+    // animation
+    iconAnimation(trigger);
+
+    // change icon
     if (trigger.innerHTML === "menu") {
         trigger.innerHTML = "close";
     }
 
     else {
         trigger.innerHTML = "menu";
-        console.log(elems);
         M.Sidenav.getInstance(elems).close();
     }
 
     // enable overlay to change icon aswell
     document.querySelector(".sidenav-overlay").addEventListener("click", () => {
-            trigger.innerHTML = "menu";
+        iconAnimation(trigger);
+        trigger.innerHTML = "menu";
     });
-    console.log(trigger.innerHTML);
+}
+
+// animate icons
+function iconAnimation(trigger) {
+    // animation
+    trigger.parentElement.classList.add("fadeIn");
+    setTimeout(() => {
+        trigger.parentElement.classList.remove("fadeIn");
+    },500);
 }
 
 export default Radio;

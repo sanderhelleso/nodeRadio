@@ -114,6 +114,11 @@
     opacity: 1;
 }
 
+#songInfo {
+    transition: 1s;
+    opacity: 0;
+}
+
 .playing {
     animation: zoom 1.5s infinite linear;
 }

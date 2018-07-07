@@ -25,7 +25,7 @@ class Player extends Component {
                     <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
                 </div>
                 <div className="barCont">
-                    <h5><span id="songPlayedDuration"></span><span id="songTotalDuration"></span></h5>
+                    <h5 id="songInfo"><span id="songPlayedDuration">-</span><span id="songTotalDuration">-</span></h5>
                     <Progressbar />
                 </div>
             </div>
@@ -62,6 +62,7 @@ function stream() {
 
 // display song stats
 function streamStats(player) {
+    document.querySelector("#songInfo").style.opacity = "1";
 
     // set total duration
     const setTotalDuration = document.querySelector("#songTotalDuration"); 
