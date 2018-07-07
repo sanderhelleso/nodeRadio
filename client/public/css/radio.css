@@ -123,8 +123,25 @@
 }
 
 .user-view {
-    min-height: 20vh;
+    min-height: 25vh;
     margin-bottom: 0 !important;
+}
+
+#slide-out {
+    background: #212121;
+}
+
+.sideHomeLink {
+    font-family: 'Poiret One', cursive;
+    opacity: 0.5;
+    letter-spacing: 2px;
+    font-size: 25px;
+    padding-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.sideHomeLink:hover {
+    opacity: 1;
 }
 
 @keyframes zoom {
