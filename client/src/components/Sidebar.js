@@ -12,13 +12,8 @@ class Sidebar extends Component {
     render() {
         return (
             <ul id="slide-out" className="sidenav">
-                <li>
-                    <div className="user-view">
-                        <div className="background">
-                            <img src="/img/landing.jpg" />
-                        </div>
-                    </div>
-                </li>
+                <li><a href="#!">First Sidebar Link</a></li>
+                <li><a href="#!">Second Sidebar Link</a></li>
             </ul>
         )
     }

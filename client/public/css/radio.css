@@ -31,6 +31,7 @@
     background-attachment: fixed;
     height: 100vh;
     z-index: -1337;
+    overflow: hidden;
 }
 
 .radioCont {
@@ -87,6 +88,14 @@
     position: absolute;
     top: 80%;
     width: 100%;
+}
+
+.sidenav-overlay {
+    z-index: 1338 !important;
+}
+
+#slide-out {
+    z-index: 1339 !important;
 }
 
 .playing {
