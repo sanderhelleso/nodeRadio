@@ -5,11 +5,10 @@ const categories = ["house", "trance", "edm", "nightcore", "pop", "hip-hop", "ra
 module.exports = app => {
     categories.forEach(category => {
         app.get(`/api/${category}`, (req, res) => {
-            //getMusic(`${category} music`);
+            getMusic(`${category} music`);
             
             const dir = `./client/public/genres/${category}`;
-            //console.log(readFile(`${dir}/info/${category}.txt`));
-            fs.readdir(dir, (err, files) => {
+            /*fs.readdir(dir, (err, files) => {
                 res.send({
                     song:   `/genres/${category}/${category}1.mp4`,
                     info:   readFile(`${dir}/info/${category}1.txt`, true),
@@ -17,7 +16,7 @@ module.exports = app => {
 
                 });
                 res.end();
-            });
+            });*/
         });
     });
 

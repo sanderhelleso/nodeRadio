@@ -48,8 +48,7 @@ function stream() {
     const getSrc = category[category.length - 1];
 
     console.log(player.src);
-    setSrc(player, player.duration, getSrc,  1);
-    console.log(player.src);
+    //setSrc(player, player.duration, getSrc,  1);
 
     if (ele.innerHTML === "play_circle_outline") {
         player.play(); 

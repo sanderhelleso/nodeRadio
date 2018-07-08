@@ -3,7 +3,7 @@ const fs = require("fs");
 const ytdl = require('ytdl-core');
 
 const opts = {
-  maxResults: 50,
+  maxResults: 10,
   type: "video",
   videoDuration: "short",
   videoDefinition: "high",
@@ -24,8 +24,11 @@ module.exports = category => {
             const fileName = `${filePath}${genre}${count}.mp4`;
 
             // get song
-            //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
-            //.pipe(fs.createWriteStream(fileName));
+            ytdl(result.link, { filter: (format) => format.container === 'mp4' })
+            .pipe(fs.createWriteStream(fileName)
+            .on("close", () => {
+                console.log("File downloaded!" + fileName);
+            }));
 
             createInfoFile(`${filePath}/info/`, genre, result, count);
         });
