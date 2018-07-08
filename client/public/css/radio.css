@@ -77,7 +77,7 @@
 #commingUpSongTitle {
     clear: both;
     font-size: 20px;
-    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 #commingUpCont {
@@ -86,6 +86,7 @@
 
 #commingUpCont span {
     margin-right: 3px;
+    margin-bottom: 5px;
 }
 
 #songTotalDuration {

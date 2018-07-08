@@ -79,12 +79,17 @@ function streamStats(player) {
     document.querySelector("#songInfo").style.opacity = "1";
 
     // set total duration
-    const setTotalDuration = document.querySelector("#songTotalDuration"); 
-    setTotalDuration.innerHTML = convertSecs(player.duration);
+    setTotalDuration(player);
 
     // start and display current duration interval
     getPlayedDuration(player);
 
+}
+
+// set total duration of current song
+function setTotalDuration(player) {
+    const setTotalDuration = document.querySelector("#songTotalDuration"); 
+    setTotalDuration.innerHTML = convertSecs(player.duration);
 }
 
 // displays current time of song playing
@@ -141,24 +146,33 @@ function songProgress(currentTime, totalTime) {
 
 // set continuously song src
 function setSrc(player, time, category, id) {
+    // song duration for auto que
     const timeInMs = (time * 1000) - 1000;
+
+    // get data from server
     postLiveData(category, id);
 
     // set crossfade
-    console.log(timeInMs);
     setTimeout(() => {
         crossFade(player);
     }, timeInMs - 5000);
 
+    // set src timeout
     console.log("set src started");
     setTimeout(() => {
         id++;
         player.src = `/genres/${category}/${category}${id}.mp4`;
         console.log("sat src");
 
-        player.play();
+        // autoplay next song if not paused by user
+        if (!player.paused) {
+            player.play();
+        }
+
+        // repeat function and set new info
         setTimeout(() => {
             setSrc(player, player.duration, category, id);
+            setTotalDuration(player);
         }, 1000);
     }, timeInMs);
 }
