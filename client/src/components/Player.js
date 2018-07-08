@@ -163,17 +163,17 @@ function crossFade(player) {
     setTimeout(() => {
         clearInterval(fadeOutVolume);
         const fadeInVolume = setInterval(() => {
-            player.volume = player.volume + 0.2;
-        }, 1000);
+            player.volume = player.volume + 0.1;
+        }, 500);
 
         setTimeout(() => {
             clearInterval(fadeInVolume);
-        }, 4000);
+        }, 4500);
     }, 5000);
 
     const fadeOutVolume = setInterval(() => {
-        player.volume = player.volume - 0.2;
-    }, 1000);
+        player.volume = player.volume - 0.1;
+    }, 500);
 }
 
 export default connect(mapStateToProps, actions)(Player);
