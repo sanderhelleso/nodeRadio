@@ -63,7 +63,7 @@ function stream() {
     }
 
     if (player.muted) {
-        setSrc(player, player.duration, getSrc,  2);
+        setSrc(player, player.duration, getSrc, 0);
     }
 
     player.muted = false;
@@ -135,19 +135,45 @@ function songProgress(currentTime, totalTime) {
     bar.style.width = `${percent}%`;
 }
 
+// set continuously song src
 function setSrc(player, time, category, id) {
     const timeInMs = (time * 1000) - 1000;
+
+    // set crossfade
+    console.log(timeInMs);
+    setTimeout(() => {
+        crossFade(player);
+    }, timeInMs - 5000);
+
     console.log("set src started");
     setTimeout(() => {
         id++;
         player.src = `/genres/${category}/${category}${id}.mp4`;
         console.log("sat src");
-        
+
         player.play();
         setTimeout(() => {
             setSrc(player, player.duration, category, id);
         }, 1000);
     }, timeInMs);
+}
+
+// fade out and in music
+function crossFade(player) {
+    setTimeout(() => {
+        clearInterval(fadeOutVolume);
+        const fadeInVolume = setInterval(() => {
+            player.volume = player.volume + 0.2;
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(fadeInVolume);
+        }, 4000);
+    }, 5000);
+
+    const fadeOutVolume = setInterval(() => {
+        player.volume = player.volume - 0.2;
+    }, 1000);
 }
 
 export default connect(mapStateToProps, actions)(Player);
