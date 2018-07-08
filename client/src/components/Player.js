@@ -26,6 +26,10 @@ class Player extends Component {
                     <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
                 </div>
                 <div className="barCont">
+                <div id="commingUpCont">
+                    <span className="right">Comming up</span>
+                    <h5 id="commingUpSongTitle" className="right-align"></h5>
+                </div>
                     <h5 id="songInfo"><span id="songPlayedDuration">-</span><span id="songTotalDuration">-</span></h5>
                     <Progressbar />
                 </div>
@@ -193,8 +197,10 @@ function postLiveData(category, id) {
     .then(res => setSongInfo(res.current, res.next));
 }
 
+// set song info (now playing / comming up)
 function setSongInfo(current, next) {
     document.querySelector("#currentSongTitle").innerHTML = current;
+    document.querySelector("#commingUpSongTitle").innerHTML = next;
     console.log(current, next);
 }
 

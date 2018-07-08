@@ -74,6 +74,20 @@
     margin-top: 5px;
 }
 
+#commingUpSongTitle {
+    clear: both;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+#commingUpCont {
+    margin-right: 10px;
+}
+
+#commingUpCont span {
+    margin-right: 3px;
+}
+
 #songTotalDuration {
     float: right;
 }
