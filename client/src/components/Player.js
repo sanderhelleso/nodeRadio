@@ -19,7 +19,7 @@ class Player extends Component {
         return (
             <div>
                 <span>Now playing</span>
-                <h4 id="currentSongTitle">{this.props.info}</h4>
+                <h4 id="currentSongTitle"></h4>
                 <ReactPlayer onReady={playOnSpacePress} id="player" url={this.props.src} muted controls={true} />
                 <div className="steamerCont">
                     <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_circle_outline</i>
@@ -190,7 +190,12 @@ function postLiveData(category, id) {
         })
     })
     .then(res => res.json())
-    .then(res => console.log(res));
+    .then(res => setSongInfo(res.current, res.next));
+}
+
+function setSongInfo(current, next) {
+    document.querySelector("#currentSongTitle").innerHTML = current;
+    console.log(current, next);
 }
 
 export default connect(mapStateToProps, actions)(Player);
