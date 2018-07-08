@@ -48,7 +48,7 @@ function stream() {
     const getSrc = category[category.length - 1];
 
     console.log(player.src);
-    //setSrc(player, player.duration, getSrc,  1);
+    console.log(player.duration);
 
     if (ele.innerHTML === "play_circle_outline") {
         player.play(); 
@@ -60,6 +60,10 @@ function stream() {
         player.pause();
         ele.innerHTML = "play_circle_outline";
         ele.classList.remove("playing");
+    }
+
+    if (player.muted) {
+        setSrc(player, player.duration, getSrc,  2);
     }
 
     player.muted = false;
@@ -132,9 +136,17 @@ function songProgress(currentTime, totalTime) {
 }
 
 function setSrc(player, time, category, id) {
-    const timeInMs = time * 1000;
+    const timeInMs = (time * 1000) - 1000;
+    console.log("set src started");
     setTimeout(() => {
+        id++;
         player.src = `/genres/${category}/${category}${id}.mp4`;
+        console.log("sat src");
+        
+        player.play();
+        setTimeout(() => {
+            setSrc(player, player.duration, category, id);
+        }, 1000);
     }, timeInMs);
 }
 

@@ -3,7 +3,7 @@ const fs = require("fs");
 const ytdl = require('ytdl-core');
 
 const opts = {
-  maxResults: 10,
+  maxResults: 5,
   type: "video",
   videoDuration: "short",
   videoDefinition: "high",
