@@ -11,7 +11,7 @@ module.exports = app => {
             //console.log(readFile(`${dir}/info/${category}.txt`));
             fs.readdir(dir, (err, files) => {
                 res.send({
-                    song:   `/genres/${category}1.mp4`,
+                    song:   `/genres/${category}/${category}1.mp4`,
                     info:   readFile(`${dir}/info/${category}1.txt`, true),
                     link:   readFile(`${dir}/info/${category}1.txt`, false)
 

@@ -1,3 +1,5 @@
+import "materialize-css/dist/js/materialize.min.js";
+
 import React, { Component } from 'react';
 import Player from '../components/Player';
 
@@ -36,6 +38,13 @@ class Radio extends Component {
     }
 }
 
+function initSidenav() {
+    document.addEventListener('DOMContentLoaded', () => {
+        const elems = document.querySelectorAll('.sidenav');
+        //const instances = M.Sidenav.init(elems);
+    });
+}
+
 // modify sidebar icons
 function sidenav() {
     const trigger = document.querySelector("#sidenavTrigger").childNodes[0];
@@ -51,7 +60,7 @@ function sidenav() {
 
     else {
         trigger.innerHTML = "menu";
-        M.Sidenav.getInstance(elems).close();
+        //M.Sidenav.getInstance(elems).close();
     }
 
     // enable overlay to change icon aswell

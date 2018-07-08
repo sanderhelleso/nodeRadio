@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import categories from "../vars/categories";
 
 class Sidebar extends Component {
-    // init sidenav
-    componentDidMount() {
-        document.addEventListener('DOMContentLoaded', () => {
-            const elems = document.querySelectorAll('.sidenav');
-            const instances = M.Sidenav.init(elems);
-        });
-    }
 
     // render sidenav cards
     renderContent() {

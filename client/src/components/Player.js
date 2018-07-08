@@ -46,6 +46,8 @@ function stream() {
     const player = document.querySelector("#player").childNodes[0];
     const category = window.location.href.split("/");
     const getSrc = category[category.length - 1];
+
+    console.log(player.src);
     setSrc(player, player.duration, getSrc,  1);
     console.log(player.src);
 

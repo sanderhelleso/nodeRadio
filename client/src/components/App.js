@@ -1,6 +1,5 @@
 // animate.css
 import "animate.css";
-import "materialize-css/dist/js/materialize.min.js";
 
 // import React & React router
 import React, { Component } from "react";

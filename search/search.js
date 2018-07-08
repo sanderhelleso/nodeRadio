@@ -27,7 +27,7 @@ module.exports = category => {
             //ytdl(result.link, { filter: (format) => format.container === 'mp4' })
             //.pipe(fs.createWriteStream(fileName));
 
-            //createInfoFile(`${filePath}/info/`, genre, result, count);
+            createInfoFile(`${filePath}/info/`, genre, result, count);
         });
     })
 };
