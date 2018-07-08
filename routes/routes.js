@@ -21,7 +21,11 @@ module.exports = app => {
 
         // post live data
         app.post(`/api/live/${category}`, (req, res) => {
-            console.log(req.body.songId);
+            const songId = req.body.songId;
+            res.send({
+                current: readFile(`./client/public/genres/${category}/info/${category}${songId}.txt`, true),
+                next: readFile(`./client/public/genres/${category}/info/${category}${songId + 1}.txt`, true)
+            });
         });
 
         // get current song playing
