@@ -8,12 +8,12 @@ module.exports = app => {
             //getMusic(`${category} music`);
             
             const dir = `./client/public/genres/${category}`;
-            console.log(readFile(`${dir}/info/${category}.txt`));
+            //console.log(readFile(`${dir}/info/${category}.txt`));
             fs.readdir(dir, (err, files) => {
                 res.send({
-                    song:   `/genres/${category}/${files[0]}`,
-                    info:   readFile(`${dir}/info/${category}.txt`, true),
-                    link:   readFile(`${dir}/info/${category}.txt`, false)
+                    song:   `/genres/${category}1.mp4`,
+                    info:   readFile(`${dir}/info/${category}1.txt`, true),
+                    link:   readFile(`${dir}/info/${category}1.txt`, false)
 
                 });
                 res.end();

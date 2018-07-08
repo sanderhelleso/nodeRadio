@@ -9,9 +9,10 @@ class Player extends Component {
 
         // get current url
         const category = window.location.href.split("/");
+        const getSrc = category[category.length - 1];
         
         // fetch the current song playing
-        return this.props.fetchSong(category[category.length - 1]);
+        return this.props.fetchSong(getSrc);
     }
 
     render() {
@@ -19,7 +20,7 @@ class Player extends Component {
             <div>
                 <span>Now playing</span>
                 <h4 id="currentSongTitle">{this.props.info}</h4>
-                <ReactPlayer onReady={playOnSpacePress} id="player" url={window.location.origin + this.props.src} muted controls={true} />
+                <ReactPlayer onReady={playOnSpacePress} id="player" url={this.props.src} muted controls={true} />
                 <div className="steamerCont">
                     <i id="streamer" onClick={stream} className="material-icons radioOptions noSelect">play_circle_outline</i>
                     <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
@@ -43,6 +44,10 @@ const mapStateToProps = state => ({
 function stream() {
     const ele = document.querySelector("#streamer");
     const player = document.querySelector("#player").childNodes[0];
+    const category = window.location.href.split("/");
+    const getSrc = category[category.length - 1];
+    setSrc(player, player.duration, getSrc,  1);
+    console.log(player.src);
 
     if (ele.innerHTML === "play_circle_outline") {
         player.play(); 
@@ -123,6 +128,13 @@ function songProgress(currentTime, totalTime) {
     const bar = document.querySelector("#currentProgress");
     const percent = currentTime * 100 / totalTime;
     bar.style.width = `${percent}%`;
+}
+
+function setSrc(player, time, category, id) {
+    const timeInMs = time * 1000;
+    setTimeout(() => {
+        player.src = `/genres/${category}/${category}${id}.mp4`;
+    }, timeInMs);
 }
 
 export default connect(mapStateToProps, actions)(Player);
