@@ -188,7 +188,9 @@ function postLiveData(category, id) {
         body: JSON.stringify({
             songId: id
         })
-    });
+    })
+    .then(res => res.json())
+    .then(res => console.log(res));
 }
 
 export default connect(mapStateToProps, actions)(Player);
