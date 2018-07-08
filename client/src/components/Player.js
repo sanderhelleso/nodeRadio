@@ -63,7 +63,7 @@ function stream() {
     }
 
     if (player.muted) {
-        setSrc(player, player.duration, getSrc, 0);
+        setSrc(player, player.duration, getSrc, 1);
     }
 
     player.muted = false;
@@ -138,6 +138,7 @@ function songProgress(currentTime, totalTime) {
 // set continuously song src
 function setSrc(player, time, category, id) {
     const timeInMs = (time * 1000) - 1000;
+    postLiveData(category, id);
 
     // set crossfade
     console.log(timeInMs);
@@ -174,6 +175,20 @@ function crossFade(player) {
     const fadeOutVolume = setInterval(() => {
         player.volume = player.volume - 0.1;
     }, 500);
+}
+
+// send live data about radio to server
+function postLiveData(category, id) {
+    fetch(`/api/live/${category}`, {
+    method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            songId: id
+        })
+    });
 }
 
 export default connect(mapStateToProps, actions)(Player);

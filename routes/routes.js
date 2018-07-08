@@ -18,6 +18,16 @@ module.exports = app => {
                 res.end();
             });
         });
+
+        // post live data
+        app.post(`/api/live/${category}`, (req, res) => {
+            console.log(req.body.songId);
+        });
+
+        // get current song playing
+        app.get(`/api/live/${category}`, (req, res) => {
+            console.log(123);
+        });
     });
 
     // read bytes from file and returns content
