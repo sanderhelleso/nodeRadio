@@ -43,7 +43,7 @@
 }
 
 .user-view .card-image {
-    max-height: 25vh !important;
+    max-height: 20vh !important;
 }
 
 .user-view .genreOverlay:after {

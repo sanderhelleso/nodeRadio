@@ -6,8 +6,8 @@ class Sidebar extends Component {
     // render sidenav cards
     renderContent() {
         return categories.map((category) =>
-            <a key={category} href={`/radio/${category}`}>
-                <li className="user-view">
+            <li key={category} className="user-view">
+                <a key={category} href={`/radio/${category}`}>
                     <div className="background">
                         <div className="sideCard card">
                             <div className="card-image">
@@ -18,8 +18,8 @@ class Sidebar extends Component {
                             </div>
                         </div>
                     </div>
-                </li>
-            </a>
+                </a>
+            </li>
         );
     }
 

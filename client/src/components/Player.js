@@ -10,6 +10,8 @@ class Player extends Component {
         // get current url
         const category = window.location.href.split("/");
         const getSrc = category[category.length - 1];
+
+        postLiveData(getSrc, 1);
         
         // fetch the current song playing
         return this.props.fetchSong(getSrc);
@@ -26,10 +28,10 @@ class Player extends Component {
                     <button id="seeYt" onClick={yt} className="btn" value={this.props.link}>See on YouTube</button>
                 </div>
                 <div className="barCont">
-                <div id="commingUpCont">
-                    <span className="right">Comming up</span>
-                    <h5 id="commingUpSongTitle" className="right-align"></h5>
-                </div>
+                    <div id="commingUpCont">
+                        <span className="right">Comming up</span>
+                        <h5 id="commingUpSongTitle" className="right-align"></h5>
+                    </div>
                     <h5 id="songInfo"><span id="songPlayedDuration">-</span><span id="songTotalDuration">-</span></h5>
                     <Progressbar />
                 </div>

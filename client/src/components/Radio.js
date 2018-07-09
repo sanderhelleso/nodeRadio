@@ -2,11 +2,14 @@ import "materialize-css/dist/js/materialize.min.js";
 
 import React, { Component } from 'react';
 import Player from '../components/Player';
+import Volume from "../components/Volume";
 
 class Radio extends Component {
     componentDidMount() {
         // remove scrollbar
         document.body.style.overflow = "hidden";
+
+        initSidenav();
 
         // set bg with gradient
         const bg = document.querySelector("#bg");
@@ -28,6 +31,7 @@ class Radio extends Component {
     render() {
         return (
             <div>
+                <Volume />
                 <a id="sidenavTrigger" onClick={sidenav} data-target="slide-out" className="sidenav-trigger white-text noSelect animated"><i className="material-icons">menu</i></a>
                 <div className="container white-text radioCont animated fadeIn">
                     {this.renderContent()}
@@ -41,7 +45,7 @@ class Radio extends Component {
 function initSidenav() {
     document.addEventListener('DOMContentLoaded', () => {
         const elems = document.querySelectorAll('.sidenav');
-        //const instances = M.Sidenav.init(elems);
+        const instances = M.Sidenav.init(elems);
     });
 }
 
@@ -49,6 +53,9 @@ function initSidenav() {
 function sidenav() {
     const trigger = document.querySelector("#sidenavTrigger").childNodes[0];
     const elems = document.querySelector('.sidenav');
+
+    // show volume player
+    document.querySelector("#volumeCont").style.display = "block";
 
     // animation
     iconAnimation(trigger);
@@ -60,13 +67,15 @@ function sidenav() {
 
     else {
         trigger.innerHTML = "menu";
-        //M.Sidenav.getInstance(elems).close();
+        M.Sidenav.getInstance(elems).close();
+        document.querySelector("#volumeCont").style.display = "none";
     }
 
     // enable overlay to change icon aswell
     document.querySelector(".sidenav-overlay").addEventListener("click", () => {
         iconAnimation(trigger);
         trigger.innerHTML = "menu";
+        document.querySelector("#volumeCont").style.display = "none";
     });
 }
 
