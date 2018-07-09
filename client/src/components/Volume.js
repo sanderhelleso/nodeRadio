@@ -9,7 +9,7 @@ class Volume extends Component {
                         <i className="material-icons volumeDown">volume_down</i>
                     </div>
                     <div id="volumeRow" className="col s10">
-                        <input id="volume" type="range" min="0" max="100" onChange={volume} />
+                        <input id="volume" type="range" min="0" max="100" defaultValue="100" onChange={volume} />
                     </div>
                     <div className="col s1 volIco">
                         <i className="material-icons volumeUp">volume_up</i>
@@ -20,6 +20,7 @@ class Volume extends Component {
     }
 }
 
+// adjust radio volume
 function volume() {
     const volume = document.querySelector("#volume");
     const player = document.querySelector("#player").childNodes[0];

@@ -181,10 +181,13 @@ function setSrc(player, time, category, id) {
 
 // fade out and in music
 function crossFade(player) {
+    const currentVol = player.volume;
     setTimeout(() => {
         clearInterval(fadeOutVolume);
         const fadeInVolume = setInterval(() => {
-            player.volume = player.volume + 0.1;
+            if (player.volume <= currentVol) {
+                player.volume = player.volume + 0.1;
+            }
         }, 500);
 
         setTimeout(() => {
@@ -193,7 +196,9 @@ function crossFade(player) {
     }, 5000);
 
     const fadeOutVolume = setInterval(() => {
-        player.volume = player.volume - 0.1;
+        if (player.volume >= 0.1) {
+            player.volume = player.volume - 0.1;
+        }
     }, 500);
 }
 
