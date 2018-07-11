@@ -73,6 +73,7 @@ function stream() {
     }
 
     player.muted = false;
+    player.volume = 0.8;
     streamStats(player);
 }
 
@@ -167,9 +168,7 @@ function setSrc(player, time, category, id) {
         console.log("sat src");
 
         // autoplay next song if not paused by user
-        if (!player.paused) {
-            player.play();
-        }
+        player.play();
 
         // repeat function and set new info
         setTimeout(() => {

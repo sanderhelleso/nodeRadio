@@ -20,8 +20,7 @@ function downloadBg(uri, filename, callback) {
     for (let i = 1; i < 11; i++) {
         setTimeout(() => {
             downloadBg('https://source.unsplash.com/random/1920x1080', `./client/public/img/background/radio${i}.jpg`, () => {
-                console.log('done');
-
+                
                 // compress img to smaller size
                 gm(`./client/public/img/background/radio${i}.jpg`).compress("JPEG");
             });
